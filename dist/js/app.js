@@ -142,7 +142,7 @@
 	'use strict';
 
 	var sprite = new Image();
-	sprite.src = '/src/img/sky.jpg';
+	sprite.src = './src/img/sky.jpg';
 
 	module.exports = {
 	  render: function render(context) {
@@ -426,7 +426,7 @@
 	'use strict';
 
 	var sprite = new Image();
-	sprite.src = '/src/img/smoke-puff.png';
+	sprite.src = './src/img/smoke-puff.png';
 
 	var deg2rad = function deg2rad(degrees) {
 	  return degrees * Math.PI / 180;
@@ -485,7 +485,7 @@
 	'use strict';
 
 	var sprite = new Image();
-	sprite.src = '/src/img/plane.png';
+	sprite.src = './src/img/plane.png';
 
 	var deg2rad = function deg2rad(degrees) {
 	  return degrees * Math.PI / 180;
