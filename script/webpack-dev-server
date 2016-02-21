@@ -1,0 +1,6 @@
+#!/bin/bash
+
+webpack-dev-server \
+--config script/lib/webpack.config.js \
+--inline \
+--progress

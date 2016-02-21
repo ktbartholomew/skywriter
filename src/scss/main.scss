@@ -1,0 +1,12 @@
+body, html {
+  font-size: 14px;
+  font-family: sans-serif;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+
+#canvas canvas {
+  max-width: 100%;
+}
