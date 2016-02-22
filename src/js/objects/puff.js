@@ -26,8 +26,8 @@ Puff.prototype.getStyle = function () {
     alpha = 1;
   }
   return {
-    top: this.top,
-    left: this.left,
+    top: this.top - Math.min(this.age * 0.1, 32),
+    left: this.left - Math.min(this.age * 0.1, 32),
     width: Math.min(this.age * 0.2, 64),
     height: Math.min(this.age * 0.2, 64),
     alpha: alpha,
@@ -40,12 +40,8 @@ Puff.prototype.render = function (context) {
   var style = this.getStyle();
 
   context.translate(style.left + style.width / 2, style.top + style.height / 2);
-
   context.rotate(style.rotation);
   context.globalAlpha = style.alpha;
-  // context.fillStyle = 'rgba(200, 0, 200, 0.2)';
-  // context.fillRect(style.width / 2 * -1, style.height / 2 * -1, style.width, style.height);
-
   context.drawImage(sprite, style.width / 2 * -1, style.height / 2 * -1, style.width, style.height);
 };
 

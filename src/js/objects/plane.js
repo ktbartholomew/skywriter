@@ -6,8 +6,10 @@ var deg2rad = function (degrees) {
 };
 
 var Plane = function (options) {
-  this.top = options.top;
-  this.left = options.left;
+  this.top = options.top || 0;
+  this.left = options.left || 0;
+  this.rotation = Math.PI * 0.5;
+  this.defer = true;
 };
 
 Plane.prototype.getStyle = function () {
@@ -16,16 +18,16 @@ Plane.prototype.getStyle = function () {
     left: this.left - 32,
     width: 64,
     height: 64,
-    rotation: deg2rad(45)
+    rotation: this.rotation
   };
 };
 
 Plane.prototype.render = function (context) {
   var style = this.getStyle();
 
-  context.translate(style.left, style.top);
+  context.translate(style.left + style.width / 2, style.top + style.height / 2);
   context.rotate(style.rotation);
-  context.drawImage(sprite, 0, 0, style.width, style.height);
+  context.drawImage(sprite, style.width / 2 * -1, style.height / 2 * -1, style.width, style.height);
 };
 
 module.exports = Plane;

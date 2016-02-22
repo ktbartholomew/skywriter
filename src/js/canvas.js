@@ -34,8 +34,19 @@ Canvas.updateSize = function () {
 Canvas.render = function () {
   requestAnimationFrame(function () {
     this.context.clearRect(0,0, this.size.width(), this.size.height());
+    var deferred = [];
 
     this.contents.forEach(function (item) {
+      this.context.save();
+      if (item.defer) {
+        return deferred.push(item);
+      }
+
+      item.render(this.context);
+      this.context.restore();
+    }.bind(this));
+
+    deferred.forEach(function (item) {
       this.context.save();
       item.render(this.context);
       this.context.restore();
